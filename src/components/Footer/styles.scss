@@ -1,0 +1,212 @@
+#footer {
+    color: black;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+    .box-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+        gap: 1.5rem;
+
+        .box-address a {
+            display: block;
+        }
+
+        .box {
+            @media (max-width: 869px) {
+                min-height: 3vh;
+            }
+            min-height: 34vh;
+
+            h3 { /* Titles */
+                font-size: 1.5rem;
+                padding: 0.5rem 3.6rem;
+                font-weight: 300;
+
+                @media (max-width: 840px) {
+                    padding: 0.5rem 2.4rem;
+                }
+            }
+
+            font-size: 2.75rem;
+            font-weight: 700;
+
+            a { /* Links below the title */
+                line-height: 1.2;
+                color: black;
+                padding: 0rem 2.5rem 0.75rem 3.6rem;
+
+                @media (max-width: 840px) {
+                    padding: 0rem 2.5rem 0.75rem 2.4rem;
+                }
+
+                span:hover {
+                    color: gray;
+                }
+            }
+
+            a:not(.notLink):hover {
+                text-decoration: underline;
+            }
+
+            ul {
+                margin: 0;
+                padding-left: 0;
+                list-style: none;
+
+                li {
+                    margin: 0;
+                    padding-bottom: 0.75rem;
+                }
+            }
+
+            .box-email {
+                width: 100%;
+
+                @media (max-width: 869px) {
+                    width: 100vw;
+                }
+
+                @media (max-width: 840px) {
+                    padding-left: 1.5rem;
+                    padding-right: 24px;
+                }
+
+                padding: 0 3.6rem 0 0rem;
+                padding-left: 2.75rem;
+                margin: -1.75rem 0;
+
+                form {
+                    width: 100%;
+                    display: inline-flex;
+
+                    .formRow .filled {
+                        transform: translate(0px, 0px) scale(1) !important;
+                        position: absolute;
+                        font-weight: 700;
+                        color: black;
+                        font-size: 1.5rem !important;
+                        transition: 0.25s ease-out;
+                        width: 100%;
+                    }
+
+                    .formRow {
+                        width: 100%;
+
+                        @media (max-width: 869px) {
+                            width: 100vw;
+                        }
+
+                        input {
+                            border: 0;
+                            border-radius: 0;
+                            border-bottom: 1px white solid;
+                            font-size: 2.75rem;
+                            background: transparent;
+                            color: black;
+                        }
+
+                        label {
+                            font-size: 2.75rem;
+                            top: -6px;
+                        }
+                    }
+                }
+
+                .sign-up-message {
+                    line-height: 1.2;
+                    color: black;
+                    padding: 2.1rem 2.5rem 0.75rem 0.8rem;
+                }
+
+                .formRow:focus-within label {
+                    transform: none !important;
+                    color: transparent;
+                }
+
+                .formRow .filled {
+                    transform: none !important;
+                    color: transparent;
+                }
+
+                .btn {
+                    margin-top: 19px;
+                    height: 3rem;
+                    width: 3rem;
+
+                    img {
+                        cursor: pointer;
+                        height: 3rem;
+                        width: 3rem;
+                        vertical-align: bottom;
+                        filter: saturate(0%) contrast(0%) brightness(1000%) invert(0%) sepia(0%) hue-rotate(0deg);
+                    }
+
+                    img:hover {
+                        filter: contrast(0%) brightness(250%);
+                    }
+                }
+            }
+        }
+
+        .box-bottom { /* Copyrights, terms, and privacy */
+            height: 10vh;
+            bottom: 0;
+            font-size: 1.5rem;
+            display: block;
+            padding: 0 3.6rem;
+            text-align: left;
+
+            @media (max-width: 869px) {
+                height: 15vh;
+            }
+
+            @media (max-width: 840px) {
+                padding: 0 2.4rem;
+            }
+
+            font-weight: 300;
+
+            .content-wrapper {
+                padding-top: 5.5vh;
+                display: flex; /* Use flexbox */
+                justify-content: space-between; /* Spread content between left and right */
+                align-items: center; /* Center items vertically */
+
+                @media (max-width: 869px) {
+                    padding-top: 11vh;
+                }
+
+                h {
+                    display: inline-block;
+                    padding: 1rem 2rem 1rem 0rem;
+                }
+
+                a {
+                    // margin-right: 0;
+                    // margin-left: auto;
+                    color: black;
+                    // padding: 1rem 2rem 1rem 0rem;
+                }
+
+                a:hover {
+                    text-decoration: underline;
+                }
+
+                /* Language selection aligned to the right */
+                select {
+
+                    background-color: transparent;
+                    border-color: transparent;
+                    color: black;
+                    font-size: 1.5rem;
+
+                    option {
+                        /* Optional styles for options */
+                    }
+                }
+            }
+        }
+    }
+}
