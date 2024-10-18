@@ -52,7 +52,12 @@ body
 }
 
 .App{
-    height: 100%;
+    height: calc(100% - 60px) ;
+}
+#app { /* Assuming #app is the main wrapper */
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100% - 120px) ; /* Minimum height to cover the full viewport */
 }
 
 body{
@@ -83,13 +88,14 @@ a, a:hover{
 
 .main{
     width: 100%;
-    min-height: calc(100vh - #{$headerHeight});        // 100% - header_height - footerHeight
+    // min-height: calc(100vh - #{$headerHeight});        // 100% - header_height - footerHeight
     @media (max-width:486px) {
         min-height: calc(100vh - #{$headerHeight});
     }
     // max-width: 1450px;
     // padding: 0 10px;
     margin: 0 auto;
+    flex: 1;
 }
 
 
@@ -103,14 +109,7 @@ a, a:hover{
     
     border-bottom: 1px solid #d3d3d3;
 
-    .sidebar {
-        position: relative;
-        top: 0; left: 0;
-        width: 18.0rem;
-        min-height: calc(100vh - 6rem - 5rem);  // - headerHeight - footerHeight
-        z-index: 1;
-        border-right: 1px solid #d3d3d3;
-    }
+
 
     .content {
         width: 100%;

@@ -8,7 +8,7 @@ $mobilefooterHeight: 0rem;
     .wrap{
         // background-color: pink;
         // width: 100%;
-        height: calc(100vh - #{$footerHeight});
+        height: calc(100vh - 42px - #{$footerHeight});
 
         // padding: 20px;
         .item{
@@ -41,23 +41,41 @@ $mobilefooterHeight: 0rem;
                     
                     width: 256px;
                     height: 88px;
-                    .item-logo{
-                        width:100%;
+                    .item-logo {
+                        width: 100%;
                         height: 100%;
                         background-image: url('../../assets/barcode.png');
                         background-position: center;
-
                         background-repeat: no-repeat;
                         background-size: cover;
                         border-radius: 0.25rem;
                         cursor: pointer;
-                        z-index: 5;       
+                        position: relative; /* For absolute positioning of child elements */
+                        overflow: hidden; /* Hide the scan line outside the container */
+                        z-index: 5;
+                    
+                        /* Scan line appears at the center */
+                        .scan-line {
+                            position: absolute;
+                            top: 40%; /* Position at the middle */
+                            left: 0;
+                            width: 100%;
+                            height: 4px;
+                            background: rgba(255, 0, 0, 0.7); /* Red line with slight transparency */
+                            box-shadow: 0px 0px 10px 5px rgba(255, 0, 0, 0.4); /* Add a glowing shadow */
+                            opacity: 0; /* Hidden by default */
+                            transform: translateY(-50%); /* Center the line exactly */
+                            transition: opacity 0.3s ease;
+                            border-radius: 2px;
+                        }
+                    
+                        &:hover .scan-line {
+                            opacity: 1;
+                            animation: scan-glow 1s infinite; /* Create a pulsing glow effect */
+                        }
                     }
-                    // .item-logo:hover{
-                    //     width:100%;
-                    //     height: 100%;
-                    //     background-image: url('../../assets/mh-shop-black.png');
-                    // }
+                    
+
                 }
 
                 &::after{
@@ -73,4 +91,55 @@ $mobilefooterHeight: 0rem;
         }
 }
 
+}
+
+
+@keyframes scan-glow {
+    0%, 100% {
+        box-shadow: 0px 0px 10px 5px rgba(255, 0, 0, 0.425);
+        background: rgba(255, 0, 0, 0.55);
+        transform: translateY(-50%) skewX(0deg); /* Normal position */
+    }
+    10% {
+        box-shadow: 0px 0px 20px 10px rgba(255, 0, 0, 0.6);
+        transform: translateY(-50%) skewX(-5deg); /* Slight skew for a glitch */
+    }
+    20% {
+        box-shadow: 0px 0px 8px 4px rgba(255, 0, 0, 0.3);
+        transform: translateY(-48%) skewX(5deg); /* Move slightly up and skew */
+        background: rgba(255, 0, 0, 0.7); /* Slightly brighter */
+    }
+    30% {
+        box-shadow: 0px 0px 15px 7px rgba(255, 0, 0, 0.5);
+        transform: translateY(-50%) skewX(-3deg);
+        background: rgba(255, 0, 0, 0.85); /* Full brightness */
+    }
+    40% {
+        box-shadow: 0px 0px 5px 3px rgba(255, 0, 0, 0.2);
+        transform: translateY(-52%) skewX(3deg); /* Move slightly down */
+    }
+    50% {
+        box-shadow: 0px 0px 20px 10px rgba(255, 0, 0, 0.6);
+        transform: translateY(-50%) skewX(-2deg);
+        background: rgba(255, 0, 0, 0.7); /* Full brightness */
+    }
+    60% {
+        box-shadow: 0px 0px 12px 6px rgba(255, 0, 0, 0.4);
+        transform: translateY(-50%) skewX(0deg); /* Reset skew */
+        background: rgba(255, 0, 0, 0.85); /* Slightly dimmer */
+    }
+    70% {
+        box-shadow: 0px 0px 18px 9px rgba(255, 0, 0, 0.5);
+        transform: translateY(-49%) skewX(2deg); /* Slight movement */
+    }
+    80% {
+        box-shadow: 0px 0px 8px 4px rgba(255, 0, 0, 0.3);
+        transform: translateY(-50%) skewX(-1deg);
+        background: rgba(255, 0, 0, 0.55); /* Back to normal brightness */
+    }
+    90% {
+        box-shadow: 0px 0px 25px 12px rgba(255, 0, 0, 0.7); /* Sudden intense glow */
+        transform: translateY(-51%) skewX(1deg);
+        background: rgba(255, 0, 0, 0.75); /* Slightly brighter */
+    }
 }

@@ -8,6 +8,11 @@ $signInMargin: 4rem;
 
 
 .main-account{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // padding-top: 60px;
+    height: calc(100vh - 42px);
     // background: #f8f8f8;
 }
 .authWrapper{

@@ -1,6 +1,6 @@
 #footer {
     color: black;
-    position: absolute;
+    position: relative;
     bottom: 0;
     width: 100%;
 
@@ -151,7 +151,7 @@
         }
 
         .box-bottom { /* Copyrights, terms, and privacy */
-            height: 10vh;
+            // height: 10vh;
             bottom: 0;
             font-size: 1.5rem;
             display: block;
@@ -159,7 +159,7 @@
             text-align: left;
 
             @media (max-width: 869px) {
-                height: 15vh;
+                // height: 15vh;
             }
 
             @media (max-width: 840px) {
@@ -169,25 +169,33 @@
             font-weight: 300;
 
             .content-wrapper {
-                padding-top: 5.5vh;
+                // padding-top: 5.5vh;
                 display: flex; /* Use flexbox */
                 justify-content: space-between; /* Spread content between left and right */
                 align-items: center; /* Center items vertically */
 
-                @media (max-width: 869px) {
-                    padding-top: 11vh;
+                @media (max-width: 840px) {
+                    justify-content: space-between; /* Spread content between left and right */
+                    // padding-top: 11vh;
                 }
 
                 h {
                     display: inline-block;
                     padding: 1rem 2rem 1rem 0rem;
+                    @media (max-width: 840px) {
+                        padding: 1rem 0rem 1rem 0rem;
+                    }
                 }
 
                 a {
-                    // margin-right: 0;
-                    // margin-left: auto;
+                    margin-right: 0;
+                    margin-left: auto;
                     color: black;
                     // padding: 1rem 2rem 1rem 0rem;
+                    @media (max-width: 840px) {
+                        margin-right: 0;
+                        margin-left: 0;
+                    }
                 }
 
                 a:hover {
@@ -196,13 +204,18 @@
 
                 /* Language selection aligned to the right */
                 select {
-
+                    
+                    // background-color: rgb(55, 55, 55, 0.15);
+                    border-radius: 4px;
+                    padding: 2px 4px;
                     background-color: transparent;
-                    border-color: transparent;
+                    border: 1px solid black;
                     color: black;
                     font-size: 1.5rem;
+                    
 
                     option {
+                        
                         /* Optional styles for options */
                     }
                 }

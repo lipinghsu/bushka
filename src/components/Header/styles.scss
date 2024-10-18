@@ -214,14 +214,14 @@
         left: calc(-100% - 300px);
         // opacity: 0;
         transition: left 0.3s ease-in-out;
-        
+        box-shadow: 2px 2px 2px #eeeeee;
         // border: 1px solid black;
         min-width: 29.24rem;
         background: white;
         // min-height: calc(100vh - 6rem - 5rem);
         height: calc(100vh - 60px);
         position: absolute;
-        border-right: 1px solid lightgray;
+        // border-right: 1px solid lightgray;
 
         @media (max-width: 840){
             min-height: calc(100vh - 6rem - 7.5rem);

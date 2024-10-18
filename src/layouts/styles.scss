@@ -3,8 +3,16 @@ $ButtonHeight: 49px;
 
 
 .flex-wrapper-main-layout{
+    // background-color: red;
+    height: calc( 100vh - 60px - 42px);
+
     .main{
+        // background-color: pink;
+        height: calc( 100vh - 60px - 42px);
         margin-top: 60px;
+        @media(max-width: 840px){
+            height: auto;
+        }
     }
 }
 .adminLayout{

@@ -14,9 +14,13 @@ const Product = (product) => {
         <div className="product">
             <div className="thumbnail">
                 <Link to={`/product/${documentID}`}>
-                    <img src={productThumbnail} alt={productName} 
-                    onMouseOver={e => {(e.currentTarget.src = hoverImage)}}
-                    onMouseOut={e => (e.currentTarget.src = productThumbnail)}/>
+                    <img 
+                        src={productThumbnail} 
+                        alt={productName}
+                        onMouseOver={e => { e.currentTarget.src = hoverImage }} // Image change on hover
+                        onMouseOut={e => { e.currentTarget.src = productThumbnail }} // Reset image on mouse out
+                    />
+                    {/* <div className="overlay"/> */}
                 </Link>
             </div>
 
