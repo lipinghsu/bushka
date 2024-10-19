@@ -30,18 +30,18 @@ const Footer = (props) => {
                 <div className="box-container">
                     <div className="box-bottom">
                         <div className="content-wrapper">
-                            <h>© Büshka 2023</h>
+                            <h>© BÜSHKA 2023</h>
                             <select 
                                 name="language" 
                                 onChange={languageChange}
                                 value={localStorage.getItem("i18nextLng")}
                             >
-                                <option value="en">English</option>
+                                <option value="en">EN (US)</option>
                                 <option value="tw">繁體中文</option>
                             </select>
                             
                             <Link to="terms">
-                                {t("Terms & Privacy")}
+                                {t("TERMS & PRIVACY")}
                             </Link>
 
                             {/* Language selector moved to the right */}

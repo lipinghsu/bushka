@@ -1,5 +1,5 @@
 
-$footerHeight: 0rem;
+$footerHeight: 42px;
 $headerHeight: 6rem;
 $mobilefooterHeight: 0rem;
 // root element of the document
@@ -64,7 +64,7 @@ body{
     font-family: Helvetica Neue, Helvetica, 'Helvetica Neue', Arial, 'Lucida Grande', sans-serif;
     font-size: 1.8rem;
     line-height: 1;
-    font-weight: 400;
+    font-weight: 300;
     letter-spacing: 0.015rem;
     
     min-width: 340px;
@@ -89,8 +89,8 @@ a, a:hover{
 .main{
     width: 100%;
     // min-height: calc(100vh - #{$headerHeight});        // 100% - header_height - footerHeight
-    @media (max-width:486px) {
-        min-height: calc(100vh - #{$headerHeight});
+    @media (max-width: 1000px) {
+        min-height: calc(100vh - #{$headerHeight} - #{$footerHeight});
     }
     // max-width: 1450px;
     // padding: 0 10px;

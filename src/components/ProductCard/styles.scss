@@ -1,13 +1,17 @@
 .productCardContainer{
-    height: calc( 100% - 60px);   
+    height: calc( 100vh - 60px);  
+    @media (max-width: 840px) {
+        height: calc( 100% - 60px);
+    } 
 }
 .productCard{
     // to avoid image overlay gap
-    height: calc( 100% - 60px);
+    height: calc( 100vh - 60px);
+    @media (max-width: 840px) {
+        height: calc( 100% - 60px);
+    }
 
     .add-to-cart-notification{
-        // background-color: pink;
-        // border: 1px solid lightgray;
         @media (max-width: 840px) {
             left: 0;right:0;
             margin: 0 auto;
@@ -211,7 +215,7 @@
                 }
                 .price{
                     padding: 1rem 0;
-                    font-size: 1.75rem;
+                    font-size: 1.6rem;
                     font-weight: 400;
                 }
 
@@ -259,7 +263,7 @@
                             // border: 1px solid black;
                             border-radius: 8.5px;
                             h3{
-                                font-size: 1.75rem;
+                                font-size: 1.6rem;
                                 font-weight: 600;
                                 flex-grow: 1;
 
@@ -282,11 +286,11 @@
                         }
                         
                         .description-text{
-                            padding-left: 7px;
+                            // padding-left: 7px;
                             margin: 6px 0;
                             white-space: pre-line;
                             line-height: 1.2;
-                            font-size: 1.75rem;
+                            font-size: 1.6rem;
                             transition: .5s all ease-out;  //bc max is 1200px
                             max-height: 1200px;            // might cause a problem but it works fine now
                         }

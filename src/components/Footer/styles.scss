@@ -154,6 +154,7 @@
             // height: 10vh;
             bottom: 0;
             font-size: 1.5rem;
+            
             display: block;
             padding: 0 3.6rem;
             text-align: left;
@@ -163,15 +164,16 @@
             }
 
             @media (max-width: 840px) {
-                padding: 0 2.4rem;
+                padding: 0 1.8rem;
+                font-size: 1.4rem;
             }
 
-            font-weight: 300;
+            font-weight: 400;
 
             .content-wrapper {
                 // padding-top: 5.5vh;
                 display: flex; /* Use flexbox */
-                justify-content: space-between; /* Spread content between left and right */
+                // justify-content: space-between; /* Spread content between left and right */
                 align-items: center; /* Center items vertically */
 
                 @media (max-width: 840px) {
@@ -184,41 +186,59 @@
                     padding: 1rem 2rem 1rem 0rem;
                     @media (max-width: 840px) {
                         padding: 1rem 0rem 1rem 0rem;
+                        font-size: 1.3rem;
+                        width: 100%;
                     }
                 }
 
                 a {
+                    text-align: right;
+                    
                     margin-right: 0;
                     margin-left: auto;
                     color: black;
+                    
+                    // padding: 2px 4px;
+                    border-radius: 4px;
                     // padding: 1rem 2rem 1rem 0rem;
                     @media (max-width: 840px) {
                         margin-right: 0;
                         margin-left: 0;
+                        padding: 1rem 0rem 1rem 0rem;
+                        font-size: 1.3rem;
+                        width: 100%;
                     }
                 }
 
                 a:hover {
                     text-decoration: underline;
+                    color: #000095;
+                    // color:white;
+                    // background-color: #000095;
                 }
 
                 /* Language selection aligned to the right */
                 select {
-                    
-                    // background-color: rgb(55, 55, 55, 0.15);
                     border-radius: 4px;
                     padding: 2px 4px;
                     background-color: transparent;
                     border: 1px solid black;
                     color: black;
-                    font-size: 1.5rem;
-                    
+                    font-size: 1.4rem;
+                    text-align: center;
 
-                    option {
-                        
-                        /* Optional styles for options */
+                    @media (max-width: 840px) {
+                        font-size: 1.3rem;
                     }
+                
+                    /* Ensures select dropdown opens consistently */
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    appearance: none;
+
+                    
                 }
+            
             }
         }
     }

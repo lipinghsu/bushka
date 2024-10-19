@@ -42,6 +42,19 @@ const Header = props =>{
     
     const refOutsideDiv = useRef(null);
 
+    const [hoveredPosition, setHoveredPosition] = useState({ left: 0, width: 0 });
+    const floatingBoxRef = useRef(null);
+
+    const handleMouseEnter = (e) => {
+        const rect = e.target.getBoundingClientRect();
+        setHoveredPosition({ left: rect.left, width: rect.width });
+    };
+
+    const handleMouseLeave = () => {
+        setHoveredPosition({ left: 0, width: 0 }); // Reset or hide box on mouse leave
+    };
+
+
     const signOut = () =>{
         dispatch(signOutUserStart());
     }
@@ -136,21 +149,22 @@ const Header = props =>{
                 </div>
                 {/* header, right, not mobile */}
                 {!mobile &&
-                <div className='callToActions'>
-                    <ul>
-                        <NavItem text= {t("Shop")} link="/search"/>
-                        <NavItem text= {t("Cart")} link="/cart" number={totalNumCartItems}/>
-                        {/* <NavItem text= {"Account"} link={myAccountLink}/> */}
-                        {/* if the user IS logged in */}
-                        {currentUser && [
-                            <NavItem image= {profileImageUrl ? profileImageUrl : DefaultUserImage} profileImageClass={profileImageClass} mobile={false}>
-                                <DropdownMenu  />
-                            </NavItem>,
-                        ]}
-                        {/* if the user is not logged in */}
-                        {!currentUser && [
-                            <NavItem text= {t("Account")} link="/login"/>
-                        ]}
+<div className='callToActions'>
+                    <ul onMouseLeave={handleMouseLeave}>
+                        <div
+                            ref={floatingBoxRef}
+                            className="floating-box"
+                            style={{
+                                right: `${window.innerWidth - hoveredPosition.left - hoveredPosition.width - 36}px`,
+                                width: hoveredPosition.width
+                            }}
+                        />
+                        <NavItem text="SHOP" link="/search" onHover={handleMouseEnter} />
+                        <NavItem text={`CART (${totalNumCartItems})`} link="/cart" onHover={handleMouseEnter} />
+                        <NavItem text="ACCOUNT" link="/login" onHover={handleMouseEnter} />
+                        {currentUser && (
+                            <NavItem text="Log Out" signOut={() => dispatch(signOutUserStart())} onHover={handleMouseEnter} />
+                        )}
                     </ul>
                 </div>
                 }

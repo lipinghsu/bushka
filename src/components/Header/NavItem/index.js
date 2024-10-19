@@ -1,4 +1,4 @@
-import React, {useState, useRef, useEffect} from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const NavItem = props => {
@@ -6,12 +6,12 @@ const NavItem = props => {
     const refOutsideDiv = useRef(null);
 
     useEffect(() => {
-        const handleClickOutsideDiv = (e) =>{
-            if (!e.target.closest('.profile-image-button')) { 
+        const handleClickOutsideDiv = (e) => {
+            if (!e.target.closest('.profile-image-button')) {
                 setOpen(false);
             }
         }
-        if(open){
+        if (open) {
             document.addEventListener("click", handleClickOutsideDiv, true);
         }
         return () => {
@@ -19,72 +19,78 @@ const NavItem = props => {
         };
     }, [open])
 
+    const handleMouseEnter = (e) => {
+        if (props.onHover) {
+            props.onHover(e); // Trigger the hover effect in the Header
+        }
+    };
 
-    
-    return(
-        <li className="nav-item">
+    return (
+        <li 
+            className="nav-item" 
+        >
             {/* not mobile, image */}
             {props.image && !props.mobile &&
-            <div ref={refOutsideDiv} className="profile-image-button">
-                <img 
-                    src={props.image} 
-                    alt="userProfilePicture" 
-                    className={props.profileImageClass}
-                    onClick={() => setOpen(!open)} 
-                />
-                {open && props.children}
-            </div>
+                <div ref={refOutsideDiv} className="profile-image-button">
+                    <img
+                        src={props.image}
+                        alt="userProfilePicture"
+                        className={props.profileImageClass}
+                        onClick={() => setOpen(!open)}
+                    />
+                    {open && props.children}
+                </div>
             }
             {/* not mobile, text */}
             {props.text && !props.mobile && !props.signOut &&
-            <div>
-                <Link to= {props.link} >
-                    <span className="text-button">
-                        {props.text} 
-                        {/* cart item number */}
-                        {props.number != 0 && props.number &&
-                            <span> ({props.number})</span>
-                        }
-                    </span>
-                </Link>
-            </div>
+                <div>
+                    <Link to={props.link}>
+                        <span className="text-button"
+                                    onMouseEnter={handleMouseEnter} 
+                                    onMouseLeave={props.onLeave} >
+                            {props.text}
+                            {/* cart item number */}
+                            {props.number != 0 && props.number &&
+                                <span> ({props.number})</span>
+                            }
+                        </span>
+                    </Link>
+                </div>
             }
-            
+
             {/* mobile, image (account) */}
             {props.image && props.mobile &&
-            <div>
-                <Link to= {props.link} >
-                <img
-                    src={props.image} 
-                    alt="userProfilePicture" 
-                    className={props.profileImageClass}   
-                />
-                {props.children}
-                </Link>
-            </div>
+                <div>
+                    <Link to={props.link}>
+                        <img
+                            src={props.image}
+                            alt="userProfilePicture"
+                            className={props.profileImageClass}
+                        />
+                        {props.children}
+                    </Link>
+                </div>
             }
             {/* mobile, text */}
             {props.text && props.mobile &&
-            <div onClick= {() => {props.setSidebar(false);}}>              
-                <Link to= {props.link} >
-                    <span className="text-button">
-                        {props.text} 
-                    </span>
-                </Link>
-
-            </div>
+                <div onClick={() => { props.setSidebar(false); }}>
+                    <Link to={props.link}>
+                        <span className="text-button">
+                            {props.text}
+                        </span>
+                    </Link>
+                </div>
             }
 
-            {/*  log out button */}
+            {/* log out button */}
             {props.text === "Log out" &&
-            <div onClick= {() => {props.signOut();}}>                
-                <Link to= {props.link} >
-                    <span className="text-button">
-                        {props.text} 
-                    </span>
-                </Link>
-
-            </div>
+                <div onClick={() => { props.signOut(); }}>
+                    <Link to={props.link}>
+                        <span className="text-button">
+                            {props.text}
+                        </span>
+                    </Link>
+                </div>
             }
         </li>
     )

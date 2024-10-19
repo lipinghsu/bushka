@@ -110,7 +110,7 @@ const CartDetail = ({}) =>{
                                 </div>
                                 <div className="continue-shopping">
                                     <Button onClick={() => history.goBack()} className="btn btn-submit">
-                                        {t("Continue Shopping")}
+                                        {t("CONTINUE SHOPPING")}
                                     </Button>
                                 </div>
                             </div>
